@@ -18,7 +18,8 @@ class ContactAdapter(val contacts : List<Contact>, val itemClickListener: OnItem
         return ContactPrototype(view)
     }
     override fun onBindViewHolder(holder: ContactPrototype, position: Int) {
-        holder.bind(contacts.get(position, itemClickListener))
+        holder.bind(contacts.get(position), itemClickListener)
+
     }
     override fun getItemCount(): Int {
         return contacts.size
@@ -31,7 +32,7 @@ class ContactPrototype(itemView: View):RecyclerView.ViewHolder(itemView){
     val cvContact = itemView.findViewById<CardView>(R.id.cdContact)
 
     fun bind(contact: Contact, itemClickListener: OnItemClickListener){
-        tvName.text = contact.name
+        tvName.text = contact.nombre
         tvTelephone.text = contact.telephone
 
         cvContact.setOnClickListener{
