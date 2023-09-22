@@ -7,12 +7,12 @@ import org.jetbrains.annotations.NotNull
 
 @Entity
 class Contact (
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int?,
     @ColumnInfo (name="Nombre")
     @NotNull
-    val nombre: String,
+    var nombre: String,
     @ColumnInfo (name="Telephone")
     @NotNull
-    val telephone: String
+    var telephone: String
 )
